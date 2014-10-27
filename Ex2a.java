@@ -52,16 +52,14 @@ public class Ex2a {
    * @return approximate value of exp(x)
    */
   public static double expIter(double x, double threshold) {
-    double sum = 0.0;
-    double res = 1.0;
-    int limit = 10000; // limit to calculate the series expansion
+    double summand = 1.0;
+    double res = 0.0;
 
-    for(int i = 0; i < limit; i++){
-      sum = powerIter(x,i)/factorialIter(i);
-      if ( sum < threshold ) {
-        return res;
-      }
-      res += sum;
+    int i = 0;
+    while(summand >= threshold){
+      summand = powerIter(x,i)/factorialIter(i);
+      res += summand;
+      i++;
     }
     return res;
   }

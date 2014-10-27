@@ -61,4 +61,54 @@ public class Ex2aMyTest {
     public void ex2Test7() {
       assertEquals(1, Ex2a.factorialIter(1));
     }
+
+  /**
+   * test exp(0)
+   */
+  @Test
+    public void ex2TEst8() {
+      assertEquals(1.0, Ex2a.expIter(0,0.01),0.0001);
+    }
+
+  /**
+   * test exp(1)
+   */
+  @Test
+    public void ex2Test9() {
+      assertEquals(2.718, Ex2a.expIter(1.0, 0.0001),0.001);
+    }
+
+
+  /**
+   * test exp(2.0)
+   */
+  @Test
+    public void ex2Test10() {
+      assertEquals(7.389, Ex2a.expIter(2.0, 0.0001),0.001);
+    }
+
+  /**
+   * test exp(3.0)
+   */
+  @Test
+    public void ex2Test11() {
+      assertEquals(20.08, Ex2a.expIter(3.0, 0.001),0.01);
+    }
+
+  /**
+   * test exp(4.0)
+   */
+  @Test
+    public void ex2Test12() {
+      assertEquals(54.59, Ex2a.expIter(4.0, 0.0001),0.01);
+    }
+
+  /**
+   * test exp(5.0)
+   */
+  @Test
+    public void ex2Test13() {
+      assertEquals(148.41, Ex2a.expIter(5.0, 0.00001),0.001);
+    }
+
 }
