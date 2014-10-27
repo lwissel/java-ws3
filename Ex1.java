@@ -9,6 +9,9 @@
 
 public class Ex1 {
   public static void main(String[] args) {
+    int[] test = { 1, 4, 8, 134, 7 };
+
+    System.out.println(average(test));
   }
 
   /**
@@ -22,8 +25,8 @@ public class Ex1 {
     }
 
     double res = 0.0;
-    for (int a: n) {
-      res += (double)(a);
+    for (int n: a) {
+      res += (double)(n);
     }
 
     // the explicit cast is not needed here
