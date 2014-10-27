@@ -45,4 +45,24 @@ public class Ex2a {
     }
     return res;
   }
+
+  /** method to calculate exp(x) until a given threshold
+   * @param x argument of exp(x)
+   * @param threshold summand stops if smaller than threshold
+   * @return approximate value of exp(x)
+   */
+  public static double expIter(double x, double threshold) {
+    double sum = 0.0;
+    double res = 1.0;
+    int limit = 10000; // limit to calculate the series expansion
+
+    for(int i = 0; i < limit; i++){
+      sum = powerIter(x,i)/factorialIter(i);
+      if ( sum < threshold ) {
+        return res;
+      }
+      res += sum;
+    }
+    return res;
+  }
 }
