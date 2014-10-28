@@ -100,15 +100,6 @@ public class Ex2aMyTest {
    */
   @Test
     public void ex2Test12() {
-      assertEquals(54.59, Ex2a.expIter(4.0, 0.0001),0.01);
+      assertEquals(54., Ex2a.expIter(4.0, 0.1),0.1);
     }
-
-  /**
-   * test exp(5.0)
-   */
-  @Test
-    public void ex2Test13() {
-      assertEquals(148.41, Ex2a.expIter(5.0, 0.00001),0.001);
-    }
-
 }

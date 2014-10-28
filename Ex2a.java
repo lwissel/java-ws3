@@ -2,6 +2,8 @@
  *
  * Approximate calculation of the exponentional function
  *
+ * IMPORTANT does only work for very small ints or it causes overflow
+ * due to the factorial function
  * @author  Lennart Wissel
  * @version 27.10.2014
  */
@@ -33,6 +35,8 @@ public class Ex2a {
    * @param n is the integer to calculate n*(n-1)*...*1
    * @return is the integer representing n!
    * remember 0! = 1
+   *
+   * IMPORTANT does only work for very small ints or it causes overflow
    */
   public static int factorialIter(int n) {
     if(n == 0) {
@@ -66,7 +70,7 @@ public class Ex2a {
 
     // here we create a while loop that only evaluates as long as summand is
     // not smaller than the threshold
-    int i = 0;
+    int i = 1;
     while(summand >= threshold){
       // for i = 0 we get summand = 1, for i = 1 we get summand = x
       summand = powerIter(x,i)/factorialIter(i);
