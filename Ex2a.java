@@ -53,20 +53,20 @@ public class Ex2a {
    */
   public static double expIter(double x, double threshold) {
     double summand;
-    double res;
+    double res = 1.0; // the series alwas starts with 1 + O(x) at least
 
     summand = 1.0; // first summand is always 1
     // this case does not make much sense given the condition on the sheet if
     // summand is smaller than the threshold break:
     // if threshold > 1 then the summand is already smaller for the first expansion
     // and should therefore return 1.0
-    if (threshold > 1.0) {
+    if (threshold >= 1.0) {
       return 1.0;
     }
 
     // here we create a while loop that only evaluates as long as summand is
     // not smaller than the threshold
-    long i = 0;
+    int i = 0;
     while(summand >= threshold){
       // for i = 0 we get summand = 1, for i = 1 we get summand = x
       summand = powerIter(x,i)/factorialIter(i);
