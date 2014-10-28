@@ -8,7 +8,7 @@
  * @version 27.10.2014
  */
 
-public class Ex2a {
+public class Ex2 {
   public static void main(String[] args) {
   }
 
