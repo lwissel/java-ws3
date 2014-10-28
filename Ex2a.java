@@ -45,11 +45,11 @@ public class Ex2a {
 
     int res = 1;
     for(int i = 1; i <= n; i++) {
-      res = i*res;
       if (res > Integer.MAX_VALUE/i) {
         System.out.println("Overflow in factorialIter.");
         System.exit(0);
       }
+      res = i*res;
     }
     return res;
   }
