@@ -136,7 +136,9 @@ public class Ex2 {
   }
 
   /** Helper method to calculate exp(x) until a given threshold
+   * @param x argument of exp(x)
    * @param i parameter to control the recursive function
+   * @param threshold summand stops if smaller than threshold
    * @return approximate value of exp(x)
    * to make this method recursive we should introduce the parameter i
    */
