@@ -1,8 +1,11 @@
 /** Exercise 3 ws3
  *
- * Calculates the total digits su of an integer
+ * Calculates the total digits of an integer
  *
  * first non-recursively, then recursive
+ *
+ * @author  Lennart Wissel
+ * @version 29.10.2014
  */
 
 public class Ex3 {
