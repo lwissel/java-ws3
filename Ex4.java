@@ -11,14 +11,21 @@
 
 public class Ex4 {
   public static void main(String[] args) {
+
+		String [] arr = {"aaaa","b","aa","aaa","abds","abc","ha"};
+    quickSort(arr);
+    for(String s: arr) System.out.print(s + " ");
+    System.out.println();
   }
 
   /** method to sort a string array according to the string length using the
    * quicksort algorithm
    * @param str string array to be sorted
+   * @return recursively the sorted string array
    */
-  public static void quickSort(String[] str) {
-    rearrange(str, 0, str.length);
+  public static String[] quickSort(String[] str) {
+    rearrange(str, 0, str.length-1);
+    return str;
   }
 
 
@@ -34,14 +41,18 @@ public class Ex4 {
     // we need two more variables to define the subarray of s we work on
     // a represents the lower index, b the upper end (both including)
     if (a > b || b >= s.length) { return; }
-    if (s.length == 1) { return; }
+    if (s.length == 1 || s.length == 0) { return; }
+    if (isSorted(s)) { return; }
 
     // this is the pivot point we base our comparison on
-    int pivot = (b-a)/2;
+    int pivot = (b-a+1)/2;
 
     // to make life easier we just copy the elements to a dummy array ignoring
     // memory restrictions
-    String[] sCopy = new String[s.length];
+    // the length is always: o i ii iii
+    //                         a     b
+    //                         b-a + 1 = 3-1 + 1 = 2+1 = 3
+    String[] sCopy = new String[b-a+1];
 
     // this variable keeps track of the last written position in the sCopy array
     int positionCounter = 0;
@@ -50,7 +61,7 @@ public class Ex4 {
     int newPivot;
 
     // first copy all elements smaller equal to the pivot elements
-    for ( int i = a; i <= b; i++) {
+    for ( int i = 0; i < sCopy.length; i++) {
       if ( s[i].length() <= s[pivot].length() && i != pivot ) {
         // copy elements to the beginning
         sCopy[positionCounter] = s[i]; 
@@ -66,7 +77,7 @@ public class Ex4 {
     positionCounter++;
     
     // then copy the other elements
-    for ( int i = a; i <= b; i++) {
+    for ( int i = 0; i < sCopy.length; i++) {
       if ( s[i].length() > s[pivot].length() ) {
         // copy elements on top of the new pivot position
         sCopy[positionCounter] = s[i]; 
@@ -76,8 +87,8 @@ public class Ex4 {
 
     // now our new sCopy array is the rearranged array and we can copy its
     // contents back into the original array
-    for ( int i = 0; i < s.length; i++ ) {
-      s[i] = sCopy[i];
+    for ( int i = 0; i < sCopy.length; i++ ) {
+      s[a+i] = sCopy[i];
     }
 
     // the new lower and upper partitions should not include the newPivot anymore

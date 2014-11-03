@@ -58,7 +58,19 @@ public class Ex4MyTest {
   @Test
     public void ex4test8() {
       String[] a = {"a", "aa", "aaa", "aaaa", "a"};
-      assertTrue(isSorted(Ex4.quickSort(a)));
+      assertTrue(Ex4.isSorted(Ex4.quickSort(a)));
+    }
+
+  @Test
+    public void ex4test9() {
+      String[] a = {""};
+      assertTrue(Ex4.isSorted(Ex4.quickSort(a)));
+    }
+
+  @Test
+    public void ex4test10() {
+      String[] a = {};
+      assertTrue(Ex4.isSorted(Ex4.quickSort(a)));
     }
 }
 
