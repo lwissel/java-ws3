@@ -15,83 +15,78 @@ public class Ex4 {
 
   /** method to sort a string array according to the string length using the
    * quicksort algorithm
+   * @param str string array to be sorted
+   */
+  public static void quickSort(String[] str) {
+    rearrange(str, 0, str.length);
+  }
+
+
+  /** method to rearrange a string array according to the string length using
+   * the exercise instructions
    * @param s string array to sort
+   * @param a lower index
+   * @param b upper index
    * @return sorted array in increasing order
    */
-  public static String[] quickSort(String[] s) {
-    String[] sLeft  = createSubArray(s, "left");
-    String[] sRight = createSubArray(s, "right");
-    // ADD all subarrays etc to arraylist?
-    //
-    quickSort(
-    return s;
+  public static void rearrange(String[] s, int a, int b) {
+
+    // we need two more variables to define the subarray of s we work on
+    // a represents the lower index, b the upper end (both including)
+    if (a > b || b >= s.length) { return; }
+    if (s.length == 1) { return; }
+
+    // this is the pivot point we base our comparison on
+    int pivot = (b-a)/2;
+
+    // to make life easier we just copy the elements to a dummy array ignoring
+    // memory restrictions
+    String[] sCopy = new String[s.length];
+
+    // this variable keeps track of the last written position in the sCopy array
+    int positionCounter = 0;
+
+    // this integer is the position in the sCopy array after rearranging
+    int newPivot;
+
+    // first copy all elements smaller equal to the pivot elements
+    for ( int i = a; i <= b; i++) {
+      if ( s[i].length() <= s[pivot].length() && i != pivot ) {
+        // copy elements to the beginning
+        sCopy[positionCounter] = s[i]; 
+        positionCounter++;
+      }
+    }
+      
+    // then copy the pivot element and remember its new position
+    // pivot has to be copied to positionCounter which already points to the
+    // correct empty array position because it was incremented in the last loop
+    sCopy[positionCounter] = s[pivot];
+    newPivot = positionCounter;
+    positionCounter++;
+    
+    // then copy the other elements
+    for ( int i = a; i <= b; i++) {
+      if ( s[i].length() > s[pivot].length() ) {
+        // copy elements on top of the new pivot position
+        sCopy[positionCounter] = s[i]; 
+        positionCounter++;
+      }
+    }
+
+    // now our new sCopy array is the rearranged array and we can copy its
+    // contents back into the original array
+    for ( int i = 0; i < s.length; i++ ) {
+      s[i] = sCopy[i];
+    }
+
+    // the new lower and upper partitions should not include the newPivot anymore
+    rearrange(s,a,newPivot-1);
+    rearrange(s,newPivot+1,b);
   }
 
   /** HELPER METHODS */
 
-  /** creates left or right subarray assuming a pivot is half array.length
-   * @param array is the array to create the subarray from
-   * @param type is "left" or "right"
-   * @return new subarray of array containing all items bigger or smaller than the pivot
-   */
-  public static String[] createSubArray(String[] array, String type) {
-    if (array.length == 0) { return array; }
-    if (array.length == 1) { return array; }
-
-    int pivot = array.length/2;
-    int count = 0; // count how big each subarray will be
-
-    // create either the left or right subarray
-    if (type.equals("left")) {
-      for (int i = 0; i < array.length; i ++) {
-        if ( array[i].length() <= array[pivot].length() ) { 
-          count++;
-        }
-      }
-      
-      // create the new subarray
-      // and copy the elements over
-      if (count == 0) {
-        return new String[] {};
-      } 
-      else {
-        String[] returnArray = new String[count-1]; //we don't want to include the pivot string
-        for (int i = 0; i < array.length; i ++) {
-          if ( array[i].length() <= array[pivot].length() && i != pivot ) { 
-            returnArray[i] = array[i];
-          }
-        }
-        return returnArray;
-      }
-    }
-
-    else if (type.equals("right")) {
-      for (int i = 0; i < array.length; i ++) {
-        if ( array[i].length() > array[pivot].length() ) { 
-          count++;
-        }
-      }
-      
-      // create the new subarray
-      // and copy the elements over
-      if (count == 0) {
-        return new String[] {};
-      } 
-      else {
-        String[] returnArray = new String[count];
-        for (int i = 0; i < array.length; i++) {
-          if ( array[i].length() > array[pivot].length() ) { 
-            returnArray[i] = array[i];
-          }
-        }
-        return returnArray;
-      }
-    }
-    // if no mathing type is given we just do nothing
-    else {
-      return array;
-    }
-  }
 
   /** swaps to elements in string array
    * @param array array to operate on
