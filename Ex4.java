@@ -34,7 +34,6 @@ public class Ex4 {
    * @param s string array to sort
    * @param a lower index
    * @param b upper index
-   * @return sorted array in increasing order
    */
   public static void rearrange(String[] s, int a, int b) {
 
