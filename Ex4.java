@@ -12,10 +12,10 @@
 public class Ex4 {
   public static void main(String[] args) {
 
-		String [] arr = {"aaaa","b","aa","aaa","abds","abc","ha"};
-    quickSort(arr);
-    for(String s: arr) System.out.print(s + " ");
-    System.out.println();
+		//String [] arr = {"aaaa","b","aa","aaa","abds","abc","ha"};
+    //quickSort(arr);
+    //for(String s: arr) System.out.print(s + " ");
+    //System.out.println();
   }
 
   /** method to sort a string array according to the string length using the
