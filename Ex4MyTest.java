@@ -51,4 +51,14 @@ public class Ex4MyTest {
       String[] a = {"111", "11", "111"};
       assertFalse(Ex4.isSorted(a));
     }
+
+  /** TESTING OF quickSort
+   */
+  
+  @Test
+    public void ex4test8() {
+      String[] a = {"a", "aa", "aaa", "aaaa", "a"};
+      assertTrue(isSorted(Ex4.quickSort(a)));
+    }
 }
+
