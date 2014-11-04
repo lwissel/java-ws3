@@ -115,6 +115,7 @@ public class Ex5 {
     for (int a: hanoi) {
       trace += String.valueOf(a) + " ";
     }
+    trace = trace.trim();
     trace += "\n";
   }
 
