@@ -26,5 +26,30 @@ public class Ex5MyTest {
       int[] b = Ex5.init(1);
       assertArrayEquals(a,b);
     }
+
+  // Test to move disks
+  @Test
+    public void ex5test4() {
+      int[] a = {1,1,1};
+      Ex5.move(a,1,3);
+      int[] r = {3,1,1};
+      assertArrayEquals(a,r);
+    }
+
+  @Test
+    public void ex5test5() {
+      int[] a = {3,1,1};
+      Ex5.move(a,1,3);
+      int[] r = {3,3,1};
+      assertArrayEquals(a,r);
+    }
+
+  @Test
+    public void ex5test6() {
+      int[] a = {1,1,1,3};
+      Ex5.move(a,3,1);
+      int[] r = {1,1,1,1};
+      assertArrayEquals(a,r);
+    }
 }
 
